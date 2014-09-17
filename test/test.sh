@@ -19,6 +19,7 @@ error() {
     [ "`cat "dest/existing_file_updated(1).txt"`" == "updated" ] || error "Existing updated files are added as a new file"
     [ "`cat "dest/subdir/existing_file_updated(1).txt"`" == "updated" ] || error "Existing updated files are added as new in subdirs"
     [ "`cat "dest/existing_file with spaces updated(1).txt"`" == "updated" ] || error "It works with files with spaces"
+    [ "`cat "dest/multiple_copies(2).txt"`" == "updated2" ] || error "It deals with multiple updates of the same file"
     [ "`cat "dest/-?*wtfz(1).txt"`" == "weirdx2" ] || error "it deals with strange filenames on updated"
     echo OK!
 )
