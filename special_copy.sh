@@ -40,12 +40,12 @@ create_new_for_updated() {
         #   echo $1/$(ls -rt $1 |tail -1);
         # }
         #
-        # therefore, I decided to just go with a "good enough" approach; Stating a file
+        # therefore, I decided to just go with a "good enough" approach; stat-ing a file
         # to check for existance should be fast enough for most practical purposes
         for i in {1..1000}; do
             target_file="$filename($i).$extension"
             if [ ! -f "$DESTINATION/$dirname/$target_file" ]; then
-                cp "$SOURCE/$source_file" "$DESTINATION/$dirname/$target_file"
+                cp -- "$SOURCE/$source_file" "$DESTINATION/$dirname/$target_file"
                 break
             fi
         done
